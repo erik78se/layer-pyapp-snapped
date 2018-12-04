@@ -22,7 +22,7 @@ make build
 ```
 
 # Deplopyment
-An example deployment command using the snapcraft.io.
+Deployment command:
 ```bash
 juju deploy ./builds/pyapp-snapped
 ```
