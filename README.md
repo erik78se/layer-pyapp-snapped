@@ -26,3 +26,17 @@ Deployment command:
 ```bash
 juju deploy ./builds/pyapp-snapped
 ```
+
+```
+Model    Controller           Cloud/Region         Version  SLA          Timestamp
+default  localhost-localhost  localhost/localhost  2.4.7    unsupported  23:30:18+01:00
+
+App            Version  Status  Scale  Charm          Store  Rev  OS      Notes
+pyapp-snapped           active      1  pyapp-snapped  local    4  ubuntu  
+
+Unit              Workload  Agent  Machine  Public address  Ports  Message
+pyapp-snapped/1*  active    idle   1        10.218.68.210          pyapp AVAILABLE
+
+Machine  State    DNS            Inst id        Series  AZ  Message
+1        started  10.218.68.210  juju-4b8e5b-1  bionic      Running
+```
