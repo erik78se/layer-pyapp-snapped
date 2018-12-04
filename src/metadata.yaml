@@ -1,0 +1,17 @@
+name: pyapp-snapped
+display-name: pyapp-snapped
+summary: Simple charm for the pyapp snap
+maintainer: Erik Lonroth <erik.lonroth@gmail.com>
+description: |
+  This charm deploys the pyapp  application, just add it as a resource and you are off to the races!
+tags:
+  - example
+  - snap
+  - pyapp
+series:
+  - bionic
+resources:
+  pyapp-snap:
+    type: file
+    filename: pyapp.snap
+    description: A pyapp snap
