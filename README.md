@@ -10,7 +10,7 @@ See that you can install the "pyapp" snap from snapstore.io
 ```bash
 sudo snap install pyapp --channel edge --devmode
 ```
-If that works, so will the charm
+If that works, so will the charm (You can remove the pyapp after your test)
 
 # Building the charm
 
