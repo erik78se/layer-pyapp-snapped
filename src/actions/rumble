@@ -1,0 +1,5 @@
+#!/bin/bash
+# An action named "rumble"
+# It just runs pyapp.run (that prints two messages to syslog)
+
+/snap/bin/pyapp.run

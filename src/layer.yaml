@@ -3,6 +3,13 @@ includes:
   - 'layer:snap'
 options:
   snap:
+    core:
+      channel: stable
+      devmode: false
+      jailmode: false
+      dangerous: false
+      classic: false
+      revision: null
     pyapp:
       channel: edge
       devmode: true

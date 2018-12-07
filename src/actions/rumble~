@@ -1,0 +1,4 @@
+#!/bin/bash
+# An action named "rumble"
+
+/snap/bin/pyapp.run

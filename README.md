@@ -1,24 +1,53 @@
 # layer-pyapp-snapped
 
-This layer manages the lifecycle of the the snapped pyapp application.
+This juju charm is meant to be a practice application to help you understand how to
+work with DevOps and CI/CD in a juju context. 
 
-[The pyapp snap repo](https://github.com/erik78se/snap-pyapp)
+Its purpose is get you going using juju to deploy applications packaged with snap.
 
-# Prep
+This charm deploys the snap "pyapp", a practice python3 application.
+
+It is available in snapstore, so you dont need to build it if you don't want to.
+
+Go have a look ar [The pyapp snap repo](https://github.com/erik78se/snap-pyapp)
+
+# Prepare
 
 See that you can install the "pyapp" snap from snapstore.io
 ```bash
 sudo snap install pyapp --channel edge --devmode
 ```
-If that works, so will the charm (You can remove the pyapp after your test)
+Then run pyapp.run and look for its messages in syslog:
+```
+$ pyapp.run 
+$ tail -n 2 /var/log/syslog 
+Dec  7 13:53:37 juju-4b8e5b-3 app.hello: this is debug
+Dec  7 13:53:37 juju-4b8e5b-3 app.hello: this is critical
+```
+If that works, so will this charm.
 
-# Building the charm
+# Deploy with juju
+Just go ahead and deploy the latest verion of it:
+```bash
+juju deploy cs:~erik-lonroth/pyapp-snapped
+```
 
+# Building this charm
+Clone this repo and build the charm.
 ```bash
 git clone git@github.com:erik78se/layer-pyapp-snapped.git
 cd layer-pyapp-snapped
 make clean
 make build
+```
+
+# Pushing to Charmstore
+For the world to use.
+```bash
+cd builds
+charm push ./pyapp-snapped
+charm attach cs:~erik-lonroth/pyapp-snapped-0 pyapp-snap=pyapp.snap
+charm release cs:~erik-lonroth/pyapp-snapped-0 --resource pyapp-snap-0
 ```
 
 # Deplopyment
