@@ -32,8 +32,22 @@ Just go ahead and deploy the latest verion of it:
 juju deploy cs:~erik-lonroth/pyapp-snapped
 ```
 
+Once deployed. You can invoke a juju-acion: "rumble" as:
+
+```bash
+$ juju run-action pyapp-snapped/0 rumble
+Action queued with id: 58e2ae6f-c821-410d-8218-524ed323adef
+```
+... and see that it ran:
+
+```bash
+$ juju run-action pyapp-snapped/0 rumble
+Action queued with id: 58e2ae6f-c821-410d-8218-524ed323adef
+```
+
+
 # Building this charm
-Clone this repo and build the charm.
+Clone this repo and build the charm. See also: build.sh
 ```bash
 git clone git@github.com:erik78se/layer-pyapp-snapped.git
 cd layer-pyapp-snapped
@@ -42,7 +56,7 @@ make build
 ```
 
 # Pushing to Charmstore
-For the world to use.
+For the world to use. See also: release.sh
 ```bash
 cd builds
 charm push ./pyapp-snapped
@@ -54,7 +68,7 @@ charm release cs:~erik-lonroth/pyapp-snapped-0 --resource pyapp-snap-0
 ```
 
 # Deplopyment
-Deployment command:
+Deployment of locally built charm:
 ```bash
 juju deploy ./builds/pyapp-snapped
 ```
