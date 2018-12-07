@@ -46,6 +46,9 @@ For the world to use.
 ```bash
 cd builds
 charm push ./pyapp-snapped
+# We need two empty resources 
+# Those from layer.yaml
+touch pyapp.snap core.snap 
 charm attach cs:~erik-lonroth/pyapp-snapped-0 pyapp-snap=pyapp.snap
 charm release cs:~erik-lonroth/pyapp-snapped-0 --resource pyapp-snap-0
 ```
