@@ -3,7 +3,8 @@ display-name: pyapp-snapped
 summary: Simple charm for the pyapp snap
 maintainer: Erik Lonroth <erik.lonroth@gmail.com>
 description: |
-  This charm deploys the pyapp  application, just add it as a resource and you are off to the races!
+  This charm deploys the pyapp  application, either from snapstore or if you supply it as a juju resource.
+
 tags:
   - example
   - snap
