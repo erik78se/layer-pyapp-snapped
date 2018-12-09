@@ -22,30 +22,30 @@ Its good if you know how to create your own SNAP, but its not needed. [You can l
 * Create a simple juju charm with "[layer-snap]"
 
 ## Why juju charms + SNAP ?
-SNAP packages are universal to any linux distribution. This means that you can deploy your application on ANY linux distribution without having to re-package for each distro.
+SNAP packages are _universal to Linux_. This means that we can deploy our snapped applications without having to re-package for every linux distribution our users prefer, like ubuntu, debian, raspbian, NI Linux Real-Time distribution or centos. Great news for every DevOps team!
 
-A specifically interesting use-case of [SNAP:s] and JUJU are for "IoT applications". IoT benefit heavily from the SNAP format and having a good means to deploy them: 
+A specifically interesting use-case of [SNAP:s] are for "IoT applications". The reasons for that are: 
 
 1. SNAPs do atomic upgrades.
 2. SNAPs are OS agnostic.
 3. SNAPs has a very secure confinement.
-4. IoT lives often in complex systems where service orchestration is needed (juju).
+4. SNAPs can be made very independent of its execution environment.
 
-All in all, SNAP:s and deployment with JUJU makes life easier any development scenario.
+Using JUJU for development and deployment of IoT SNAPs will get your IoT applications ready for the world! 
 
-## The SNAP
-You will use a training SNAP I have created for you: [pyapp]. The pyapp application is a python3 application that writes a simple message to stdout and loggs a few messages to syslog.
+## The "pyapp" SNAP
+We will use a training SNAP I have created for us: [pyapp]. The pyapp application is a python3 application that writes a simple message to stdout and loggs a few messages to syslog.
 
 The code for [pyapp] is available here: [snap-pyapp]
 
-You can easily install it to test it if you like:
+We can easily install it to test it:
 ```bash
 sudo snap install pyapp --devmode
 pyapp.run
 ```
 
-## Create a charm & include "layer-snap".
-I call my charm "pyapp-snapped" (Recall from earlier tutorials that the layer- prefix is to indicate this is a reactive charm.) Feel free to use your own cooler name.
+## Create a new charm & include "layer-snap".
+I called my charm "pyapp-snapped" (Recall from earlier tutorials that the layer- prefix is to indicate this is a reactive charm.) Feel free to use a cooler name for yours if you like.
 
 ```bash
 snapcaft create layer-pyapp-snapped
@@ -84,7 +84,7 @@ display-name: pyapp-snapped
 summary: Simple charm for the pyapp snap
 maintainer: Erik Lonroth <erik.lonroth@gmail.com>
 description: |
-  This charm deploys the pyapp  application, just add it as a resource and you are off to the races!
+  This charm deploys the pyapp  application, either from snapstore or if you supply it as a juju resource.
 tags:
   - example
   - snap
@@ -97,7 +97,7 @@ resources:
     filename: pyapp.snap
     description: A pyapp snap
 ```
-What you should notice here, is the included [charm-resource]. This makes the [layer-snap] aware that you _may_ attach a package along with your deployment (It will be uploaded to the juju controller who then distributes it). We won't do this in this tutorial, but feel free to try it on your own.  
+What we notice here, is the included [charm-resource]. This makes the [layer-snap] aware that we _may_ attach a package along with our deployment (It will be uploaded to the juju controller who then distributes it). We won't do this in this tutorial, but feel free to try it on your own.  
 
 The resource is just going to be a placeholder in this case. [layer-snap] will automatically download our snap from snapstore.io if it is not uploaded to the controller along with the deploy.
 
@@ -141,7 +141,7 @@ def pyapp_not_installed():
 charm proof
 charm build
 ```
-Deploy from your local build.
+Deploy from our local build.
 ```bash
 juju deploy /home/erik/charms/builds/pyapp-snapped
 Deploying charm "local:bionic/pyapp-snapped-0".
@@ -172,5 +172,6 @@ Next we will learn to add in a [juju-action] and relate our charm to a logging a
 [charm-resource]: https://docs.jujucharms.com/2.4/en/charms-resources
 
 ## Contributors
-@jamesbeedy - For teaching me about juju 
+@jamesbeedy - For teaching me about juju
+
 @stub - Author of the layer-snap
