@@ -27,7 +27,7 @@ SNAP packages are _universal to Linux_. This means that we can deploy our snappe
 A specifically interesting use-case of [SNAP:s] are for "IoT applications". The reasons for that are: 
 
 1. SNAPs do atomic upgrades.
-2. SNAPs are OS agnostic.
+2. SNAPs are Linux distribution agnostic.
 3. SNAPs has a very secure confinement.
 4. SNAPs can be made very independent of its execution environment.
 
@@ -97,9 +97,9 @@ resources:
     filename: pyapp.snap
     description: A pyapp snap
 ```
-What we notice here, is the included [charm-resource]. This makes the [layer-snap] aware that we _may_ attach a package along with our deployment (It will be uploaded to the juju controller who then distributes it to our pyapp units). 
+Notice the included [charm-resource] "pyapp-snap". This  _allow us_ to attach a snap package along with our deployment. If we do so, it will be uploaded to the juju controller and distributed to pyapp. 
 
-We won't attach a local snap as a resource in this tutorial, but feel free to try it on your own by reading about it in the [layer-snap].  The resource is just going to be a placeholder and since we leave it out, [layer-snap] will automatically download our snap from snapstore.io with we deploy.
+We won't attach a local snap in this tutorial, but feel free to try it on your own (Read: [layer-snap]).  The resource is just a placeholder and since we leave it out, [layer-snap] will automatically download our snap from snapstore.io when we deploy the charm.
 
 Lets continue and see how easy the charm code gets for us. 
 
