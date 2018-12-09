@@ -97,10 +97,11 @@ resources:
     filename: pyapp.snap
     description: A pyapp snap
 ```
-What we notice here, is the included [charm-resource]. This makes the [layer-snap] aware that we _may_ attach a package along with our deployment (It will be uploaded to the juju controller who then distributes it). We won't do this in this tutorial, but feel free to try it on your own.  
+What we notice here, is the included [charm-resource]. This makes the [layer-snap] aware that we _may_ attach a package along with our deployment (It will be uploaded to the juju controller who then distributes it to our pyapp units). 
 
-The resource is just going to be a placeholder in this case. [layer-snap] will automatically download our snap from snapstore.io if it is not uploaded to the controller along with the deploy.
+We won't attach a local snap as a resource in this tutorial, but feel free to try it on your own by reading about it in the [layer-snap].  The resource is just going to be a placeholder and since we leave it out, [layer-snap] will automatically download our snap from snapstore.io with we deploy.
 
+Lets continue and see how easy the charm code gets for us. 
 
 ## Create the **reactive/layer_pyapp_snapped.py**
 ```yaml
@@ -172,6 +173,5 @@ Next we will learn to add in a [juju-action] and relate our charm to a logging a
 [charm-resource]: https://docs.jujucharms.com/2.4/en/charms-resources
 
 ## Contributors
-@jamesbeedy - For teaching me about juju
-
+@jamesbeedy - For teaching me about juju 
 @stub - Author of the layer-snap
